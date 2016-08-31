@@ -66,6 +66,7 @@ class VendorTest extends TestCase
     public function vendor_and_manager_can_add_product_to_store()
     {
 
+
         /** Add new Store => 'Store1' */
         $store1 = new Store();
         $store1->name = 'Store1';
@@ -88,8 +89,8 @@ class VendorTest extends TestCase
         $addManagerResult = $store1->addManager($manager1->id);
 
         /** change the current user to $manager1 */
-        //todo I must change the current user id to 2
-        //Auth::loginUsingId(2);
+        Auth::loginUsingId(2);
+
         $this->assertEquals(true, $store1->addProduct($product1));
 
         $this->assertEquals(2, count($store1->getProducts()));
