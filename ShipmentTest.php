@@ -11,7 +11,7 @@ class ShipmentTest extends TestCase
         $product->setWeight(6);
 
         $shippingCalculator = new ShipmentCalculator();
-        $shippingCalculator->setShipmentRatePer1Kg(2);
+        $shippingCalculator->setRate(2);
 
         $this->assertEquals(12, $shippingCalculator->calculate($product));
     }
@@ -25,11 +25,11 @@ class ShipmentTest extends TestCase
         $product2->setWeight(7);
 
         $cart = new Cart();
-        $cart->addToCart($product1);
-        $cart->addToCart($product2);
+        $cart->addProduct($product1);
+        $cart->addProduct($product2);
 
         $shippingCalculator = new ShipmentCalculator();
-        $shippingCalculator->setShipmentRatePer1Kg(2);
+        $shippingCalculator->setRate(2);
 
         $this->assertEquals(22, $shippingCalculator->calculate($cart));
     }
@@ -43,11 +43,11 @@ class ShipmentTest extends TestCase
         $product2->setWeight(3);
 
         $cart = new Cart();
-        $cart->addToCart($product1);
-        $cart->addToCart($product2);
+        $cart->addProduct($product1);
+        $cart->addProduct($product2);
 
         $shippingCalculator = new ShipmentCalculator();
-        $shippingCalculator->setShipmentRatePer1Kg(2);
+        $shippingCalculator->setRate(2);
 
         $this->assertEquals(10, $shippingCalculator->calculate($cart));
     }
